@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Arcane Design | Web Design Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#131b2e",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "inverse-surface": "#283044",
+                        "surface-container": "#eaedff",
+                        "on-primary-fixed": "#04006d",
+                        "on-surface": "#131b2e",
+                        "on-secondary-fixed": "#0b1c30",
+                        "outline-variant": "#c7c5d4",
+                        "tertiary": "#26292b",
+                        "on-surface-variant": "#464652",
+                        "on-primary-container": "#9da1ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e2e7ff",
+                        "tertiary-container": "#3c3f41",
+                        "on-tertiary-container": "#a7aaac",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-tint": "#4f54b4",
+                        "surface-container-highest": "#dae2fd",
+                        "secondary": "#505f76",
+                        "background": "#faf8ff",
+                        "on-primary-fixed-variant": "#373a9b",
+                        "surface-dim": "#d2d9f4",
+                        "inverse-primary": "#c0c1ff",
+                        "secondary-container": "#d0e1fb",
+                        "primary-container": "#2e3192",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#54647a",
+                        "tertiary-fixed": "#e0e3e5",
+                        "inverse-on-surface": "#eef0ff",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "outline": "#777683",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#15157d",
+                        "surface-container-low": "#f2f3ff",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-variant": "#dae2fd",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "section-gap-lg": "120px",
+                        "container-max": "1280px",
+                        "section-gap-md": "80px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter", "sans-serif"],
+                        "caption": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "display-lg-mobile": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    },
+                    "boxShadow": {
+                        "level-1": "0px 4px 20px rgba(15, 23, 42, 0.05)",
+                        "level-2": "0px 10px 30px rgba(15, 23, 42, 0.1)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+		.bouton-bleu {
+  background-color: darkblue; /* Couleur de fond bleue */
+  color: white;           /* Couleur du texte */
+  padding: 10px 20px;     /* Espacement intérieur */
+  border: none;           /* Supprime la bordure par défaut */
+  border-radius: 5px;     /* Arrondit les coins */
+  cursor: pointer;        /* Change le curseur au survol */
+}
+
+.bouton-bleu:hover {
+  background-color: darkblue; /* Bleu plus foncé au survol */
+}    
+		.bouton-blanc		{
+  background-color: white; /* Couleur de fond bleue */
+  color: white;           /* Couleur du texte */
+  padding: 10px 20px;     /* Espacement intérieur */
+  border: none;           /* Supprime la bordure par défaut */
+  border-radius: 5px;     /* Arrondit les coins */
+  cursor: pointer;        /* Change le curseur au survol */
+}
+
+.bouton-blanc:hover {
+  background-color: white; /* Bleu plus foncé au survol */
+}
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-on-background/90 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex justify-between items-center h-20">
+<div class="flex items-center gap-2 cursor-pointer active:opacity-70">
+<img alt='Logo' src='logoentrp.png' width='7%'><!--<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="grid_view" data-weight="fill">grid_view</span>-->
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface dark:text-surface-container-lowest">SBABS Compagny</span>
+</div>
+<table>
+<th>
+<a href='index2.html' class='bouton-bleu'>Retour</a>
+<nav class="hidden md:flex gap-8">
+<!--<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#services">Services</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#portfolio">Portfolio</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#process">Process</a>-->
+</nav>
+</th><th>-</th>
+<th>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded hover:bg-on-primary-fixed-variant transition-colors" href='mail'>
+               Nous contacter ! 
+            </button>
+</th>
+</table>
+</div>
+</header> 
+<div><button href='index2.html' class='bouton-blanc'>Retourner à la page d'acceuil<button></div>
+<div><button href='index2.html' class='bouton-blanc'>Retourner à la page d'acceuil<button></div>
+ <table>
+<div> <tr>
+	<iframe
+        src="tomato.html" 
+        width="100%" 
+        height="500px" 
+        title="Page intégrée"
+        style="border: none;">
+    </iframe>
+	</tr>
+<tr><div><table><th><a href='mail' class='bouton-bleu'>Nous contacter !<a></th><th><p style='color: red;'>+ 5€ la sécurité du web contre les "Control +" ou "FN +"<p style='color: blue;'>Optionnel !</p></p></th>
+<hr></div></div></tr>
+ <div><tr>
+	<iframe
+        src="shopswift.html" 
+        width="100%" 
+        height="500px" 
+        title="Page intégrée"
+        style="border: none;">
+    </iframe>
+	</tr>
+<tr><div><table><th><a href='mail' class='bouton-bleu'>Nous contacter !<a></th><th><p style='color: red;'>+ 5€ la sécurité du web contre les "Control +" ou "FN +"<p style='color: blue;'>Optionnel !</p></p></th>
+<hr></div></div></tr>
+<script>
+    // 1. Bloquer le clic droit
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // 2. Bloquer les raccourcis clavier (F12, Ctrl+U, Ctrl+Shift+I, etc.)
+    document.onkeydown = function(e) {
+        // F12
+        if(e.keyCode === 123) return false;
+        // Ctrl+Shift+I (Inspecter)
+        if(e.ctrlKey && e.shiftKey && e.keyCode === 73) return false;
+        // Ctrl+Shift+J (Console)
+        if(e.ctrlKey && e.shiftKey && e.keyCode === 74) return false;
+        // Ctrl+Shift+C (Inspecter l'élément)
+        if(e.ctrlKey && e.shiftKey && e.keyCode === 67) return false;
+        // Ctrl+U (Code source)
+        if(e.ctrlKey && e.keyCode === 85) return false;
+        // Ctrl+S (Enregistrer sous)
+        if(e.ctrlKey && e.keyCode === 83) return false;
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomates Del Campo | Frescos y Directos a tu Mesa</title>
+    <!-- Tailwind CSS para diseño rápido y bonito -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Navegación -->
+    <nav class="bg-red-700 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold"><i class="fas fa-leaf text-green-400"></i> Tomates Del Campo</h1>
+            <div class="hidden md:flex space-x-6">
+                <a href="#inicio" class="hover:text-green-300">Inicio</a>
+                <a href="#productos" class="hover:text-green-300">Productos</a>
+                <a href="#nosotros" class="hover:text-green-300">Nosotros</a>
+                <a href="#contacto" class="hover:text-green-300">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Principal (Hero) -->
+    <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center text-white px-4">
+        <div>
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">Del campo a tu mesa en 24 horas</h2>
+            <p class="text-xl md:text-2xl mb-8">Tomates cultivados con amor, recogidos en su punto exacto de maduración.</p>
+            <a href="#productos" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300">
+                Ver Productos y Pedir
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section id="productos" class="py-16 container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-red-700 mb-12">Nuestros Tomates Frescos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Producto 1 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                <img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=500&q=80" alt="Tomate Cherry" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Tomate Cherry Dulce</h3>
+                    <p class="text-gray-600 mb-4">Pequeños, vibrantes y explosivamente dulces. Ideales para ensaladas y aperitivos. Bandeja de 500g.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">$3.50</span>
+                        <button onclick="pedirWhatsApp('Tomate Cherry Dulce')" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition">
+                            <i class="fab fa-whatsapp"></i> Pedir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=500&q=80" alt="Tomate de Rama" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Tomate de Rama Tradicional</h3>
+                    <p class="text-gray-600 mb-4">El sabor de toda la vida. Carnosos, jugosos y perfectos para salsas, gazpachos o ensaladas. Kg.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">$2.80 / kg</span>
+                        <button onclick="pedirWhatsApp('Tomate de Rama Tradicional')" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition">
+                            <i class="fab fa-whatsapp"></i> Pedir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                <img src="https://images.unsplash.com/photo-1561136594-8f7c87f4b93d?auto=format&fit=crop&w=500&q=80" alt="Corazón de Buey" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Corazón de Buey Orgánico</h3>
+                    <p class="text-gray-600 mb-4">Grande, carnoso y con pocas semillas. La joya de la huerta para los paladares más exigentes. Unidad.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">$4.00 / ud</span>
+                        <button onclick="pedirWhatsApp('Corazón de Buey Orgánico')" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition">
+                            <i class="fab fa-whatsapp"></i> Pedir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Por qué elegirnos -->
+    <section id="nosotros" class="bg-red-50 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-red-700 mb-8">¿Por qué elegir nuestros tomates?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-4">
+                    <i class="fas fa-clock text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Cosecha del día</h3>
+                    <p>Recogidos por la mañana y entregados por la tarde. Frescura garantizada.</p>
+                </div>
+                <div class="p-4">
+                    <i class="fas fa-seedling text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">100% Natural</h3>
+                    <p>Sin pesticidas dañinos. Cultivados respetando los ciclos de la tierra.</p>
+                </div>
+                <div class="p-4">
+                    <i class="fas fa-truck text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Envío Local</h3>
+                    <p>Entregas a domicilio en tu ciudad. Apoya el comercio de kilómetro cero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-gray-800 text-white py-8 text-center">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold mb-4">¿Tienes un pedido grande o eres restaurante?</h3>
+            <p class="mb-4">Escríbenos directamente y te hacemos un precio especial.</p>
+            <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20hacer%20un%20pedido%20de%20tomates" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full transition">
+                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+            <p class="mt-8 text-gray-400 text-sm">© 2026 Tomates Del Campo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/1234567890?text=Hola,%20quiero%20hacer%20un%20pedido" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Script para personalizar el pedido -->
+    <script>
+        function pedirWhatsApp(producto) {
+            // CAMBIA ESTE NÚMERO POR TU NÚMERO DE TELÉFONO REAL (con código de país, ej: 5215512345678)
+            const telefono = "1234567890"; 
+            const mensaje = `Hola, me interesa pedir: ${producto}. ¿Me confirman disponibilidad y zona de reparto?`;
+            const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>

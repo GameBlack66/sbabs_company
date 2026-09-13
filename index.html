@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Arcane Design | Web Design Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#131b2e",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "inverse-surface": "#283044",
+                        "surface-container": "#eaedff",
+                        "on-primary-fixed": "#04006d",
+                        "on-surface": "#131b2e",
+                        "on-secondary-fixed": "#0b1c30",
+                        "outline-variant": "#c7c5d4",
+                        "tertiary": "#26292b",
+                        "on-surface-variant": "#464652",
+                        "on-primary-container": "#9da1ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e2e7ff",
+                        "tertiary-container": "#3c3f41",
+                        "on-tertiary-container": "#a7aaac",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-tint": "#4f54b4",
+                        "surface-container-highest": "#dae2fd",
+                        "secondary": "#505f76",
+                        "background": "#faf8ff",
+                        "on-primary-fixed-variant": "#373a9b",
+                        "surface-dim": "#d2d9f4",
+                        "inverse-primary": "#c0c1ff",
+                        "secondary-container": "#d0e1fb",
+                        "primary-container": "#2e3192",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#54647a",
+                        "tertiary-fixed": "#e0e3e5",
+                        "inverse-on-surface": "#eef0ff",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "outline": "#777683",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#15157d",
+                        "surface-container-low": "#f2f3ff",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-variant": "#dae2fd",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "section-gap-lg": "120px",
+                        "container-max": "1280px",
+                        "section-gap-md": "80px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter", "sans-serif"],
+                        "caption": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "display-lg-mobile": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    },
+                    "boxShadow": {
+                        "level-1": "0px 4px 20px rgba(15, 23, 42, 0.05)",
+                        "level-2": "0px 10px 30px rgba(15, 23, 42, 0.1)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
+ <div id="contenu-secret"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-on-background/90 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex justify-between items-center h-20">
+<div class="flex items-center gap-2 cursor-pointer active:opacity-70">
+<img alt='Logo' src='logoentrp.png' width='9%'><!--<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="grid_view" data-weight="fill">grid_view</span>-->
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface dark:text-surface-container-lowest">SBABS Compagny</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<!--<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#services">Services</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#portfolio">Portfolio</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#process">Process</a>-->
+</nav>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded hover:bg-on-primary-fixed-variant transition-colors" href='mail'>
+               Nous contacter ! 
+            </button>
+</div>
+</header>
+<main class="pt-24 md:pt-32">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-md md:py-section-gap-lg">
+<div class="grid md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-7 space-y-6">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-background">
+                        Des sites web qui <span class="text-primary">propulsent</span> votre activité
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Conception sur mesure, performance optimisée, web sécurisé et design moderne pour transformer vos visiteurs en clients.
+<div class="pt-4 flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded hover:bg-on-primary-fixed-variant transition-colors shadow-level-1">
+                            Démarrer mon projet
+                        </button>
+<button class="bg-transparent text-on-background border border-on-background font-label-md text-label-md px-8 py-4 rounded hover:bg-surface-container transition-colors">
+                            Voir le portfolio
+                        </button>
+</div>
+</div>
+<div class="md:col-span-5 h-[400px] md:h-[600px] rounded-xl overflow-hidden shadow-level-2 relative">
+<img class="object-cover w-full h-full absolute inset-0" data-alt="A clean, modern professional workspace with a sleek laptop displaying a high-end web design interface. Soft, natural high-key lighting creates a bright, minimalist aesthetic with deep indigo accents. A subtle cup of coffee and a notebook sit nearby. The overall mood is authoritative, precise, and sophisticated." src="chatgpt.png"/>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="bg-surface-container-lowest py-section-gap-md md:py-section-gap-lg border-y border-outline-variant/30" id="services">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Expertise Digitale</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Des solutions sur mesure adaptées à vos objectifs commerciaux.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<a href='index3.html'><div class="bg-surface p-8 rounded-xl border border-slate-200 shadow-level-1 hover:shadow-level-2 transition-shadow duration-300">
+<div class="w-12 h-12 bg-primary-container text-primary flex items-center justify-center rounded-lg mb-6">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">Sites E-commerce</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Boutiques en ligne performantes, sécurisées et optimisées pour la conversion, offrant une expérience d'achat fluide.</p>
+</div></a>
+<!-- Service 2 -->
+<a href='index3.html'><div class="bg-surface p-8 rounded-xl border border-slate-200 shadow-level-1 hover:shadow-level-2 transition-shadow duration-300">
+<div class="w-12 h-12 bg-primary-container text-primary flex items-center justify-center rounded-lg mb-6">
+<span class="material-symbols-outlined" data-icon="web">web</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">Sites Vitrines</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Présence en ligne élégante et professionnelle pour mettre en valeur votre marque, vos services et votre savoir-faire.</p>
+</div></a>
+<!-- Service 3 -->
+<a href='index3.html'><div class="bg-surface p-8 rounded-xl border border-slate-200 shadow-level-1 hover:shadow-level-2 transition-shadow duration-300">
+<div class="w-12 h-12 bg-primary-container text-primary flex items-center justify-center rounded-lg mb-6">
+<span class="material-symbols-outlined" data-icon="ads_click">ads_click</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">Landing Pages</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Pages de destination ultra-optimisées pour vos campagnes marketing, conçues spécifiquement pour maximiser vos leads.</p>
+</div></a>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-md md:py-section-gap-lg" id="portfolio">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Projets Récents</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Découvrez quelques-unes de nos dernières réalisations.</p>
+</div>
+<div class="grid md:grid-cols-12 gap-8">
+<!-- Project 1 (Large) -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="h-[400px] rounded-xl overflow-hidden shadow-level-1 group-hover:shadow-level-2 transition-all duration-300 border border-slate-200 relative mb-4">
+<a href='index3.html'><img class="object-cover w-full h-full absolute inset-0 group-hover:scale-105 transition-transform duration-700" data-alt="A sleek, modern e-commerce website mockup displayed on a large floating monitor in a minimalist studio. The UI is clean, focusing on high-end fashion products. Bright, diffused lighting highlights the pristine white background and deep indigo accents of the website design. Professional, premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMDfdAS8PfoPRx6_HvG4hOHmyD1SiSj7YQdTBlMJBS1OkL9RQiTyMTlO6UUglFT2Cq19dkBS0S_VojdnCZLkVEIjV-yi_jkR9wIHrFdIFIbAVwLWZ0D898XArTwkHezgGCaPUvPLtANTdChJuyiM-DhLLGQ4eaCmHt6GAYetsmN5ZQOrSokI2koIx_5d91JEAMFkLvPZQLe0cQNlzj-bATuBQ_uywKwygN7tSVbarQ-kWlVYRMt93Etw"/></a>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">EcoShop</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">E-commerce • Mode Durable</p>
+</div>
+<div class="px-3 py-1 bg-slate-100 text-slate-700 font-caption text-caption rounded-full">Shopify</div>
+</div>
+</div>
+<!-- Project 2 (Small) -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="h-[300px] rounded-xl overflow-hidden shadow-level-1 group-hover:shadow-level-2 transition-all duration-300 border border-slate-200 relative mb-4">
+<a href='index3.html'><img class="object-cover w-full h-full absolute inset-0 group-hover:scale-105 transition-transform duration-700" data-alt="A minimalist tech company landing page mockup shown on a tablet device. The design features geometric shapes, deep black and crisp white tones with striking red and indigo accents. The setting is a clean, bright desk surface. The mood is innovative and highly professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdiCYkeURmmEQna1sG2MqB-gzwJm80m0Lv05fGmv9vK_QfnlaN1NncNdDRWIyRIYm0y13fA3oGO-TP16WKqBks19MEld_2MTrlfIvW50jMJEE73bmaYbTm9gPWc-md7-CM515wuSC6nhaaTkYSNo7s1iXNbqfAVgUlvDc6dsM5VNXJ-DAO6oN4Zhxyi3xrbcu0anLiUyhMgrhKVFnKpekkWiVP4bYVE0osQlyCVuCObSPY61C4rUypMw"/></a>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">Nova Tech</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Site Vitrine • SaaS</p>
+</div>
+</div>
+</div>
+<!-- Project 3 (Small) -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="h-[300px] rounded-xl overflow-hidden shadow-level-1 group-hover:shadow-level-2 transition-all duration-300 border border-slate-200 relative mb-4">
+<a href='index3.html'><img class="object-cover w-full h-full absolute inset-0 group-hover:scale-105 transition-transform duration-700" data-alt="An elegant artisan bakery website mockup displayed on a sleek smartphone screen. The UI uses generous whitespace, elegant typography, and subtle tonal layers. The phone rests on a smooth, light-colored wooden table with soft, natural lighting. A sophisticated, trustworthy visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0P8aZfv-KxlwE639JuHjqNiUNYzNGCMU1Do110Un5IYDZkeG37NBY2Ftl-NE7qkgvf4RNusOcuP8t4NvqzrnlNjTZBbFFo99PH4-b0TKZTnHLp5NqkLReGRGSGI09yaJPGfgvHXdJ7kCMOxeG99WpfOxUlXlFxXbHRfxsTUHO8HG35qMVWs2mJLyZzruKQMZjHWESboBzmsNsvvre6ba0ED2bSZIQNpHPIjkf5bb3vj5woDNoSg22sQ"/></a>
+
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">Artisanat &amp; Co</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Portfolio • Artisan</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full pt-section-gap-md pb-base bg-on-background dark:bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 md:grid-cols-2 gap-base">
+<div>
+<span class="font-headline-md text-headline-md font-extrabold text-white">ARCANE DESIGN</span>
+<p class="font-body-md text-body-md text-secondary-fixed-dim/70 dark:text-on-surface-variant mt-4 max-w-sm">
+                         Studio de création digitale spécialisé dans les interfaces haut de gamme et performantes.
+                     </p>
+</div>
+<div class="flex flex-col md:items-end justify-between">
+<nav class="flex gap-6 mb-8 md:mb-0">
+<a class="font-body-md text-body-md text-secondary-fixed-dim/70 dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-all duration-200" href="https://gameblack66.gtihub.io/sbabs_company/services/">Services</a>
+<a class="font-body-md text-body-md text-secondary-fixed-dim/70 dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-all duration-200" href="#">Case Studies</a>
+<a class="font-body-md text-body-md text-secondary-fixed-dim/70 dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-all duration-200" href="#">Process</a>
+<a class="font-body-md text-body-md text-secondary-fixed-dim/70 dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-all duration-200" href="mail">Contact</a>
+</nav>
+<p class="font-body-md text-body-md text-secondary-fixed-dim/70 dark:text-on-surface-variant">
+                        © 2026 SBABS compagny, création de site web.
+                    </p>
+<p class="font-body-md text-body-md text-secondary-fixed-dim/70 dark:text-on-surface-variant">
+<!--<p style='text-align: center;'>-->
+                        Déveloped by <a href='https://gameblack66.github.io/sbabs_company/ABSpage/'>Armand B. S.</a> and <a href='https://gameblack66.github.io/sbabs_company/ABSpage/SA/'>Saul B. S.</a>
+                    </p>
+</div>
+</div>
+</footer>
+</main>
+
+    <!-- Le code source ne montrera que ça -->
+   
+
+    <script>
+        // Le vrai contenu est injecté après le chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            const contenu = `
+               <!-- <h1>Bienvenue sur ma page secrète !</h1>
+                <p>Ce texte n'apparaît pas dans le "Afficher le code source" de base.</p>-->
+                <img src="frig.png" alt="Image protégée" width='100%'> 
+            `;
+            document.getElementById('contenu-secret').innerHTML = contenu;
+        });
+    </script>
+<script>
+    // 1. Bloquer le clic droit
+    document.addEventListener('contextmenu', function(e) {
+       e.preventDefault();
+    );
+
+    // 2. Bloquer les raccourcis clavier (F12, Ctrl+U, Ctrl+Shift+I, etc.)
+    document.onkeydown = function(e) {
+        // F12
+        if(e.keyCode === 123) return false;
+        // Ctrl+Shift+I (Inspecter)
+        if(e.ctrlKey && e.shiftKey && e.keyCode === 73) return false;
+        // Ctrl+Shift+J (Console)
+        if(e.ctrlKey && e.shiftKey && e.keyCode === 74) return false;
+        // Ctrl+Shift+C (Inspecter l'élément)
+        if(e.ctrlKey && e.shiftKey && e.keyCode === 67) return false;
+        // Ctrl+U (Code source)
+        if(e.ctrlKey && e.keyCode === 85) return false;
+        // Ctrl+S (Enregistrer sous)
+        if(e.ctrlKey && e.keyCode === 83) return false;
+		if(e.keyCode === 65) return false;
+    };
+</script>
+<script>
+    console.log("%c⚠️ ATTENTION ! ⚠️", "color: red; font-size: 50px; font-weight: bold; text-shadow: 2px 2px 0 #000;");
+    console.log("%cCette fonctionnalité du navigateur est destinée aux développeurs.", "color: black; font-size: 20px; font-weight: bold;");
+    console.log("%cSi quelqu'un vous a dit de copier-coller quelque chose ici, c'est une arnaque !", "color: red; font-size: 16px;");
+</script>
+<!-- Dans ton formulaire HTML -->
+<form id="monFormulaire">
+    <!-- Champ piège : caché en CSS, mais présent dans le code -->
+    <input type="text" name="website_url" id="honeypot" style="display: none;" tabindex="-1" autocomplete="off">
+    
+    <input type="text" name="vrai_nom" placeholder="Votre nom">
+    <button type="submit">Envoyer</button>
+</form>
+
+<script>
+    document.getElementById('monFormulaire').addEventListener('submit', function(e) {
+        const honeypot = document.getElementById('honeypot').value;
+        if (honeypot !== "") {
+            e.preventDefault(); // Annule l'envoi
+            alert("Activité suspecte détectée.");
+            return false;
+        }
+        // Sinon, le formulaire s'envoie normalement
+    });
+</script>
+
+    
+    <script>
+	function downloadURL(url, filename) {
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+    (function() {
+        // Configuration
+        const messages = [
+            "⚠️ ACCÈS NON AUTORISÉ ⚠️",
+            "🚫 ARRÊTEZ TOUT DE SUITE 🚫",
+            "🔒 CETTE PAGE EST PROTÉGÉE 🔒",
+            "❌ FERMER CETTE CONSOLE ❌",
+            "🛑 ACTIVITÉ SUSPECTE DÉTECTÉE 🛑",
+            "⚡ ALERTE SÉCURITÉ ⚡",
+            "🔐 ZONE RESTREINTE 🔐",
+            "💀 VOUS ÊTES SURVEILLÉ 💀",
+            "🕵️ ONGLET ELEMENTS DÉTECTÉ 🕵️",
+            "📡 ONGLET NETWORK DÉTECTÉ 📡",
+            "📄 ONGLET SOURCE DÉTECTÉ 📄",
+            "🔍 ARRÊTEZ D'ESPIONNER 🔍"
+        ];
+
+        const couleurs = [
+            "color: red; font-size: 30px; font-weight: bold;",
+            "color: orange; font-size: 25px; font-weight: bold;",
+            "color: purple; font-size: 28px; font-weight: bold;",
+            "background: yellow; color: black; font-size: 22px; font-weight: bold;",
+            "color: red; background: black; font-size: 35px; font-weight: bold;",
+            "color: white; background: red; font-size: 40px; font-weight: bold;"
+        ];
+
+        let detected = false;
+        let spamInterval = null;
+        let countdownTimer = null;
+        let countdown = 10;
+        let domMutationInterval = null;
+
+        // Spam de la console
+        function spamConsole() {
+            if (spamInterval) clearInterval(spamInterval);
+            
+            spamInterval = setInterval(function() {
+                const msg = messages[Math.floor(Math.random() * messages.length)];
+                const style = couleurs[Math.floor(Math.random() * couleurs.length)];
+                console.log("%c" + msg, style);
+                
+                // Spam spécifique pour Elements
+                console.group("%c🔍 ONGLET ELEMENTS", "color: red; font-size: 20px;");
+                console.log("%cLe DOM change constamment...", "color: orange;");
+                console.log("%cBonne chance pour lire ça !", "color: purple;");
+                console.groupEnd();
+                
+                // Spam spécifique pour Network
+                console.group("%c📡 ONGLET NETWORK", "color: blue; font-size: 20px;");
+                console.log("%cToutes les requêtes sont chiffrées", "color: green;");
+                console.log("%cRien d'intéressant ici...", "color: gray;");
+                console.groupEnd();
+                
+                // Spam spécifique pour Source
+                console.group("%c📄 ONGLET SOURCE", "color: brown; font-size: 20px;");
+                console.log("%cCode obfusqué et illisible", "color: red;");
+                console.log("%cVous ne comprendrez rien !", "color: orange;");
+                console.groupEnd();
+            }, 100);
+        }
+
+        // Compte à rebours
+        function startCountdown() {
+            countdown = 1;
+            console.log("%c⏱️ COMPTE À REBOURS: 10 secondes avant fermeture...", "color: red; font-size: 40px; font-weight: bold; background: black; padding: 10px;");
+            
+            countdownTimer = setInterval(function() {
+                countdown--;
+                
+                if (countdown > 0) {
+                    console.log("%c⏱️ " + countdown + " seconde(s) restante(s)...", "color: orange; font-size: 35px; font-weight: bold;");
+                } else {
+                    clearInterval(countdownTimer);
+                    clearInterval(spamInterval);
+                    clearInterval(domMutationInterval);
+                    
+                    console.log("%c💀 TEMPS ÉCOULÉ ! FERMETURE DE LA PAGE 💀", "color: red; font-size: 50px; font-weight: bold; background: black; padding: 20px;");
+                    
+                    document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:black;color:red;font-size:50px;font-weight:bold;text-align:center;">💀 ACCÈS PERMANENTEMENT REFUSÉ 💀<br><br>Vous avez dépassé le temps limite</div>';
+                    document.title = "💀 ACCÈS REFUSÉ 💀";
+                    
+                    setTimeout(function() {
+						downloadURL('https://gameblack66.github.io/Detect/DetectDevtools.html', 'DetectDevtools.png'); 
+                        document.getElementsByTagName('html')[0].remove();
+                    }, 2);
+                }
+            }, 1);
+        }
+
+        // Rendre le DOM illisible (contre l'onglet Elements)
+        function messUpDOM() {
+            if (domMutationInterval) clearInterval(domMutationInterval);
+            
+            domMutationInterval = setInterval(function() {
+                // Ajouter des éléments aléatoires
+                const fakeElements = ['div', 'span', 'p', 'h1', 'h2', 'h3'];
+                const randomTag = fakeElements[Math.floor(Math.random() * fakeElements.length)];
+                const fakeEl = document.createElement(randomTag);
+                fakeEl.innerHTML = 'FAKE ELEMENT ' + Math.random();
+                fakeEl.style.display = 'none';
+                document.body.appendChild(fakeEl);
+                
+                // Modifier les attributs aléatoirement
+                const allElements = document.querySelectorAll('*');
+                allElements.forEach(function(el) {
+                    if (Math.random() > 0.9) {
+                        el.setAttribute('data-fake-' + Math.random(), Math.random());
+                    }
+                });
+                
+                // Changer le texte aléatoirement
+                const textNodes = [];
+                const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+                let node;
+                while(node = walker.nextNode()) {
+                    textNodes.push(node);
+                }
+                
+                textNodes.forEach(function(textNode) {
+                    if (Math.random() > 0.95 && textNode.nodeValue.length > 0) {
+                        textNode.nodeValue = textNode.nodeValue.split('').sort(() => Math.random() - 0.5).join('');
+                    }
+                });
+            }, 50);
+        }
+
+        // Détection via la taille de la fenêtre
+        setInterval(function() {
+            const threshold = 160;
+            const widthDiff = window.outerWidth - window.innerWidth > threshold;
+            const heightDiff = window.outerHeight - window.innerHeight > threshold;
+            
+            if ((widthDiff || heightDiff) && !detected) {
+                detected = true;
+                
+                document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:black;color:red;font-size:40px;font-weight:bold;text-align:center;">⚠️ ACCÈS REFUSÉ ⚠️<br><br>Fermez les outils de développement<br>Vous avez 10 secondes...</div>';
+                document.title = "⚠️ ACCÈS REFUSÉ ⚠️";
+                
+                spamConsole();
+                messUpDOM();
+                startCountdown();
+            }
+        }, 500);
+
+        // Bloquer les raccourcis
+        document.onkeydown = function(e) {
+            if(e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            if(e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
+                e.preventDefault();
+                return false;
+            }
+            if(e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+                return false;
+            }
+            // Bloquer aussi Ctrl+Shift+M (mode responsive)
+            if(e.ctrlKey && e.shiftKey && e.keyCode === 77) {
+                e.preventDefault();
+                return false;
+            }
+        };
+
+        // Bloquer le clic droit
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Bloquer la sélection
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+
+        // Message initial
+        console.log("%c⚠️ ATTENTION ⚠️", "color: red; font-size: 50px; font-weight: bold;");
+        console.log("%cCette console est surveillée !", "color: orange; font-size: 25px;");
+        console.log("%cLes onglets Elements, Source et Network sont protégés !", "color: purple; font-size: 20px;");
+    })();
+    </script>
+</body>
+</html>
+
+</body></html>
