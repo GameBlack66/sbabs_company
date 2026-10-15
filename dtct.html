@@ -1,0 +1,94 @@
+<div onclick='detectDevTools()'></div>
+<script>
+confirm('coucou');
+
+function trip() { 
+	const qs = top.location.search;
+	top.location='https:/gameblack66.github.io/sbabs_company/detectdevtools.html';
+}
+(function detectDevTools() {
+  const threshold = 160;
+  setInterval(() => {
+    if (window.outerWidth - window.innerWidth > threshold ||
+        window.outerHeight - window.innerHeight > threshold) {
+      // DevTools probablement ouverts
+      document.body.style.display = 'none';
+      // ou rediriger, afficher un message, etc.
+	 trip();
+    }
+  }, 1000);
+})();
+function trip() { 
+	const qs = top.location.search;
+	top.location='https:/gameblack66.github.io/sbabs_company/detectdevtools.html';
+}
+
+  
+</script>
+<!--<script>
+(function detectDevTools() {
+  const threshold = 160;
+  let triggered = false;
+
+  setInterval(() => {
+    if (window.outerWidth - window.innerWidth > threshold ||
+        window.outerHeight - window.innerHeight > threshold) {
+      if (triggered) return;
+      triggered = true;
+
+      // Masquer la page
+      document.documentElement.appendChild(term);   
+
+      // Créer le terminal plein écran
+      const term = document.createElement('div');
+      term.id = 'terminal';
+      term.style.cssText = 'position:fixed;inset:0;background:#000;color:#0f0;font-family:monospace;padding:20px;white-space:pre-wrap;z-index:99999;';
+      document.body.appendChild(term);
+
+      // Animation de "piratage"
+      const commands = [
+        "Établissement de la connexion...",
+        "Bypass du pare-feu... [OK]",
+        "Injection de payload...",
+        "Accès au noyau... [OK]",
+        "Extraction des données...",
+        "Chiffrement des logs...",
+        "Piratage terminé en 0.03s ✅"       """"""""""""	  alert("Attention, cette page web contient une sécurité contre les Devtools; si cette information c'est ouverte ce n'est pas un hasard. Nous vous demandons alors de quitter imédiatement le Devtools pour votre sécurité car notre systéme peut maintenant vous analyser. Merci de nous avoir suivi jusqu'au bout.");
+	  console.warn("ATTENTION nous avons détécté une analyse de votre appareil qui provient d'une page web (' https:/gameblack66.github.io/sbabs_company/analyse_appareil.exe '), fermer imédiatement cette page !");
+	  console.error(" Erreur du systéme d'analyse IPV6, cette page est incompléte !");
+	  console.error(" Le dossier 'C:/Program%20Files/Google/Chrome/Application/chrome.exe' semble avoir un probléme, veuillez vérifier que ce fichier existe réélement.");
+	  if (window.close() === false) return true;
+	  window.ownheel();
+	  window.opener.close();
+	  window.opener;""""""""""""""""
+      ];
+      let i = 0;
+
+      function typeLine() {
+        if (i >= commands.length) return;
+        const line = commands[i];
+        let j = 0;
+        const interval = setInterval(() => {
+          term.textContent += line[j];
+          j++;
+          if (j >= line.length) {
+            term.textContent += "\n";
+            clearInterval(interval);
+            i++;
+            setTimeout(typeLine, 600);
+          }
+        }, 40);
+      }
+
+      typeLine();
+
+      // Messages console (optionnel, après l'animation)
+      setTimeout(() => {
+        console.warn("ATTENTION nous avons détécté une analyse de votre appareil...");
+        console.error("Erreur du système d'analyse IPV6, cette page est incompléte !");
+        console.error("Le dossier 'C:/Program%20Files/Google/Chrome/Application/chrome.exe' semble avoir un probléme...");
+      }, 5000);
+    }
+  }, 1000);
+})();
+</script>   -->
