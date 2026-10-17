@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARCANE DESIGN | Studio d'Applications Mobiles &amp; Logiciels Locaux</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#e0e3e5",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f2f3ff",
+            "on-error": "#ffffff",
+            "primary": "#15157d",
+            "on-tertiary-fixed": "#191c1e",
+            "tertiary-container": "#3c3f41",
+            "on-primary": "#ffffff",
+            "on-primary-fixed": "#04006d",
+            "outline-variant": "#c7c5d4",
+            "on-tertiary-fixed-variant": "#444749",
+            "on-secondary-fixed-variant": "#38485d",
+            "primary-fixed": "#e1e0ff",
+            "tertiary": "#26292b",
+            "surface-container-high": "#e2e7ff",
+            "inverse-surface": "#283044",
+            "on-primary-container": "#9da1ff",
+            "on-tertiary-container": "#a7aaac",
+            "inverse-primary": "#c0c1ff",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#505f76",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#54647a",
+            "secondary-fixed": "#d3e4fe",
+            "surface-tint": "#4f54b4",
+            "on-surface-variant": "#464652",
+            "surface-container": "#eaedff",
+            "primary-container": "#2e3192",
+            "surface-container-highest": "#dae2fd",
+            "on-surface": "#131b2e",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#d0e1fb",
+            "background": "#faf8ff",
+            "on-primary-fixed-variant": "#373a9b",
+            "tertiary-fixed-dim": "#c4c7c9",
+            "on-background": "#131b2e",
+            "primary-fixed-dim": "#c0c1ff",
+            "secondary-fixed-dim": "#b7c8e1",
+            "surface-dim": "#d2d9f4",
+            "surface-variant": "#dae2fd",
+            "surface-bright": "#faf8ff",
+            "outline": "#777683",
+            "on-error-container": "#93000a",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#0b1c30",
+            "surface": "#faf8ff",
+            "inverse-on-surface": "#eef0ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "base": "8px",
+            "section-gap-lg": "120px",
+            "margin-mobile": "20px",
+            "container-max": "1280px",
+            "gutter": "24px",
+            "section-gap-md": "80px"
+          },
+          "fontFamily": {
+            "caption": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg": ["Inter"]
+          },
+          "fontSize": {
+            "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+            "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    @keyframes gradient-flow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-gradient {
+      background-size: 250% 250%;
+      animation: gradient-flow 6s ease infinite;
+    }
+    .glow-soft {
+      box-shadow: 0 4px 24px -2px rgba(21, 21, 125, 0.08), 0 2px 6px -1px rgba(21, 21, 125, 0.04);
+    }
+    .glow-card:hover {
+      box-shadow: 0 16px 36px -4px rgba(21, 21, 125, 0.12), 0 4px 12px -2px rgba(21, 21, 125, 0.06);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-primary-fixed selection:text-primary">
+<!-- TOP APP BAR (Shared Component Source of Truth) -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-on-background/90 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex justify-between items-center h-20">
+<!-- Leading Icon & Brand Logo -->
+<a class="flex items-center gap-base group cursor-pointer" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed text-headline-md font-bold transition-transform duration-300 group-hover:rotate-90">grid_view</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface dark:text-surface-container-lowest">ARCANE DESIGN</span>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#expertises">Expertises</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#projets">Réalisations</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#avantages">Architecture Offline</a>
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed font-bold border-b-2 border-primary" href="#contact">Contact</a>
+</nav>
+<!-- Trailing Action -->
+<div class="flex items-center gap-base">
+<a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md px-gutter py-base rounded-full hover:bg-primary-container active:opacity-70 transition-all duration-300 shadow-sm" href="#contact">
+          Démarrer un projet
+        </a>
+</div>
+</div>
+</header>
+<main class="pt-24 md:pt-32 overflow-hidden">
+<!-- HERO SECTION -->
+<section class="relative max-w-container-max mx-auto px-margin-mobile md:px-gutter pt-8 pb-section-gap-md md:pb-section-gap-lg">
+<!-- Ambient Backlight Blur -->
+<div class="absolute -top-16 left-1/2 -translate-x-1/2 w-72 md:w-[600px] h-72 md:h-[600px] bg-gradient-to-tr from-primary-fixed via-secondary-fixed to-surface-container-highest rounded-full blur-3xl opacity-60 -z-10 pointer-events-none"></div>
+<div class="flex flex-col items-center text-center max-w-3xl mx-auto">
+<!-- Animated Badge -->
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-lowest border border-outline-variant/40 shadow-sm mb-6 transition-transform hover:scale-105">
+<span class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-primary to-indigo-500 animate-pulse"></span>
+<span class="font-caption text-caption uppercase tracking-wider text-primary font-bold bg-gradient-to-r from-primary via-indigo-600 to-purple-600 bg-clip-text text-transparent animate-gradient">
+            Studio Mobile &amp; Logiciel Haut de Gamme
+          </span>
+<span class="material-symbols-outlined text-caption text-primary">arrow_forward</span>
+</div>
+<!-- Hero Headline -->
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 tracking-tight">
+          Des applications mobiles &amp; locales qui 
+          <span class="bg-gradient-to-r from-primary via-blue-600 to-indigo-500 bg-clip-text text-transparent animate-gradient underline decoration-primary/20 decoration-wavy">
+            propulsent votre activité
+          </span>
+</h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8 leading-relaxed">
+          Conception native et multiplateforme (iOS, Android, macOS, Windows). Haute performance, sécurité robuste et fonctionnement hors-ligne pour vos utilisateurs.
+        </p>
+<!-- CTA Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-16">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-primary-container transition-all duration-300 shadow-md" href="#contact">
+<span>Lancer mon application</span>
+<span class="material-symbols-outlined text-base">rocket_launch</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border border-on-surface text-on-surface font-label-md text-label-md px-8 py-4 rounded-full hover:bg-surface-container-high transition-colors duration-300" href="#projets">
+<span>Voir les réalisations</span>
+<span class="material-symbols-outlined text-base">arrow_downward</span>
+</a>
+</div>
+<!-- Hero Mockup Container (Mobile & Desktop Showcase) -->
+<div class="relative w-full max-w-4xl mx-auto rounded-3xl bg-surface-container-lowest border border-outline-variant/50 p-3 md:p-6 glow-soft overflow-hidden">
+<!-- Mockup Top Bar Indicator -->
+<div class="flex items-center justify-between pb-4 px-2 border-b border-outline-variant/20 mb-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error/60"></span>
+<span class="w-3 h-3 rounded-full bg-secondary-fixed"></span>
+<span class="w-3 h-3 rounded-full bg-primary/40"></span>
+</div>
+<div class="font-caption text-caption text-secondary">PayFlow Engine • Native Runtime 120 FPS</div>
+<span class="material-symbols-outlined text-secondary text-sm">wifi_off</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<!-- Left Side Mockup UI Card -->
+<div class="md:col-span-5 bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30 text-left">
+<div class="flex items-center justify-between mb-4">
+<div>
+<span class="font-caption text-caption text-secondary">Statut de synchronisation</span>
+<div class="font-headline-md text-headline-md text-on-surface font-bold">100% Offline-First</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">sync_saved_locally</span>
+</div>
+</div>
+<!-- Metrics Mini Grid -->
+<div class="space-y-3">
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/20 flex justify-between items-center">
+<span class="font-caption text-caption text-on-surface">Latence d'exécution locale</span>
+<span class="font-label-md text-label-md text-primary font-bold">0.8 ms</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/20 flex justify-between items-center">
+<span class="font-caption text-caption text-on-surface">Base de données chiffrée</span>
+<span class="font-label-md text-label-md text-primary font-bold">AES-256</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/20 flex justify-between items-center">
+<span class="font-caption text-caption text-on-surface">Taux de rafraîchissement</span>
+<span class="font-label-md text-label-md text-primary font-bold">120 Hz ProMotion</span>
+</div>
+</div>
+</div>
+<!-- Right Hero Image Component -->
+<div class="md:col-span-7 overflow-hidden rounded-2xl border border-outline-variant/30 relative group">
+<img class="w-full h-64 md:h-80 object-cover transform transition-transform duration-700 group-hover:scale-105" data-alt="A luxurious modern smartphone mockup resting on a sleek white frosted glass pedestal in a high-tech minimalist design studio. The device screen displays a rich fintech user interface with deep indigo gradients, sharp sans-serif typography, and biometric indicators. Soft daylight mixes with subtle indigo ambient reflections creating an ultra-clean corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyy2dCZ9CePuQ9GzciCJ8ul_ggnnXUJLIrxVeQMWYKeUOrUiBgBtwg-bfoXYEip139PNTz5ShxvsdcYfbVQcVWRPJG5j3NTBKJ8S6icLFdaaZ8HxqONCZbJOpOPsZlFaxXQ7299kQEJh0LRJKVjLE52cf5h55Ka4F3pcQkf1Jz4nv_Ss_k1b6DXHNsPF8cU_N2kjct0Vm4KE6JZKsDB7y24vok1TgLWXUs7DNEdpzst6zhzn3tqb8jpQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent pointer-events-none"></div>
+<div class="absolute bottom-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-outline-variant/30 text-primary font-caption text-caption">
+                Architecture Hybride &amp; Native
+              </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 1: EXPERTISES (Bento Grid) -->
+<section class="py-section-gap-md bg-surface-container-low border-y border-outline-variant/20" id="expertises">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="max-w-2xl mb-12">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+<span class="font-caption text-caption uppercase tracking-wider text-primary font-bold">Nos Domaines d'Intervention</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-4">
+            Ingénierie logicielle pour des expériences fluides et résilientes
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Nous combinons la puissance des runtimes natifs et la polyvalence des architectures locales pour offrir une fiabilité absolue, même sans connexion réseau.
+          </p>
+</div>
+<!-- Bento Grid 3 Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1: Mobiles Natives -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/30 glow-card transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed text-primary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-headline-md font-bold">smartphone</span>
+</div>
+<div class="flex flex-wrap gap-1.5 mb-4">
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">iOS</span>
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">Android</span>
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">Flutter</span>
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">Swift</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">
+                Applications Mobiles Natives &amp; Cross-Platform
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                Développement mobile haut de gamme sous Flutter, React Native, Swift et Kotlin. Rendu ultra-fluide à 120 FPS, intégration biométrique et gestuelles ergonomiques.
+              </p>
+</div>
+<ul class="space-y-2.5 pt-4 border-t border-outline-variant/20">
+<li class="flex items-center gap-2 font-caption text-caption text-on-surface">
+<span class="w-1 h-1 bg-primary"></span>
+                Fluidité 120Hz et transitions immersives
+              </li>
+<li class="flex items-center gap-2 font-caption text-caption text-on-surface">
+<span class="w-1 h-1 bg-primary"></span>
+                Publication App Store &amp; Google Play Store
+              </li>
+<li class="flex items-center gap-2 font-caption text-caption text-on-surface">
+<span class="w-1 h-1 bg-primary"></span>
+                APIs matérielles (GPS, Caméra, Bluetooth LE)
+              </li>
+</ul>
+</div>
+<!-- Card 2: Locales & Desktop -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-primary/30 relative glow-card transition-all duration-300 flex flex-col justify-between shadow-sm">
+<div class="absolute -top-3 right-6 bg-primary text-on-primary text-caption font-label-md px-3 py-1 rounded-full">
+              Haute Performance
+            </div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-headline-md font-bold">laptop_mac</span>
+</div>
+<div class="flex flex-wrap gap-1.5 mb-4">
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">macOS</span>
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">Windows</span>
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">Tauri</span>
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">Electron</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">
+                Applications Locales &amp; Desktop
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                Logiciels de bureau dédiés aux flux de travail intensifs. Exploitation maximale des processeurs multi-cœurs, gestion mémoire optimisée et isolation sécurisée.
+              </p>
+</div>
+<ul class="space-y-2.5 pt-4 border-t border-outline-variant/20">
+<li class="flex items-center gap-2 font-caption text-caption text-on-surface">
+<span class="w-1 h-1 bg-primary"></span>
+                Exécution native sans dépendance cloud
+              </li>
+<li class="flex items-center gap-2 font-caption text-caption text-on-surface">
+<span class="w-1 h-1 bg-primary"></span>
+                Gestion de fichiers locaux volumineux
+              </li>
+<li class="flex items-center gap-2 font-caption text-caption text-on-surface">
+<span class="w-1 h-1 bg-primary"></span>
+                Raccourcis clavier universels &amp; menu bar
+              </li>
+</ul>
+</div>
+<!-- Card 3: Offline-First & Embarquées -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/30 glow-card transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed text-primary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-headline-md font-bold">cloud_off</span>
+</div>
+<div class="flex flex-wrap gap-1.5 mb-4">
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">SQLite</span>
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">CRDTs</span>
+<span class="font-caption text-caption px-3 py-1 rounded-full bg-surface-container text-on-surface font-medium">P2P Sync</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">
+                Applications Déconnectées &amp; Outils Métiers
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                Systèmes conçus pour fonctionner intégralement hors-ligne avec résolution automatique des conflits lors de la reconnexion et synchronisation en tâche de fond.
+              </p>
+</div>
+<ul class="space-y-2.5 pt-4 border-t border-outline-variant/20">
+<li class="flex items-center gap-2 font-caption text-caption text-on-surface">
+<span class="w-1 h-1 bg-primary"></span>
+                Base de données embarquée et cryptée
+              </li>
+<li class="flex items-center gap-2 font-caption text-caption text-on-surface">
+<span class="w-1 h-1 bg-primary"></span>
+                Synchronisation différentielle P2P
+              </li>
+<li class="flex items-center gap-2 font-caption text-caption text-on-surface">
+<span class="w-1 h-1 bg-primary"></span>
+                Continuité de service 100% garantie
+              </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: RÉALISATIONS (Project Cards with custom square indicators) -->
+<section class="py-section-gap-md max-w-container-max mx-auto px-margin-mobile md:px-gutter" id="projets">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div class="max-w-xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+<span class="font-caption text-caption uppercase tracking-wider text-primary font-bold">Études de Cas • Portfolio</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            Des produits d'exception livrés pour nos clients
+          </h2>
+</div>
+<a class="mt-4 md:mt-0 font-label-md text-label-md text-primary hover:underline flex items-center gap-1 group" href="#contact">
+          Discuter de votre cahier des charges
+          <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Project 1: PayFlow Mobile -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden glow-card transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="A smartphone screen mockup presenting a sophisticated fintech mobile application interface. The design showcases sleek dark indigo balance cards, clean financial trend graphs, and instant contactless transaction receipts. Lit in a bright high-end gallery environment with subtle soft indigo shadows and crystal clear minimalist typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJHN6D7twQxbcLPd6OetQzVXanE-2VD0abDdvFPCmDf9kTg-IemU-skWLEmEwt8vC-rTezOPNjsoYb_8lcyP_rPtzKWnG7k50t5M6T3Gco7fQ9Wg9uRJjrXcOPyM8rBUANGQRZn8vOs0SgZteJr_eu2lgMqH9zcV-KcOJTJT0jioo-iCAIfvkJKJ5_fKVwkqySc9Ddnlk0y7XQd13tIk3sCAzhp3HicPlWaDIOh68hlod1GPf5eIevjQ"/>
+<div class="absolute top-3 right-3 bg-surface-container-lowest/90 px-3 py-1 rounded-full text-caption font-caption text-primary backdrop-blur-md">
+              iOS • Android
+            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="font-caption text-caption text-secondary mb-1">FinTech • Sécurité Bancaire</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">PayFlow Mobile</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                Application mobile de gestion de trésorerie multi-devises et paiements instantanés. Clés privées stockées sur le Secure Enclave du terminal.
+              </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Architecture bi-directionnelle</span>
+<span class="material-symbols-outlined text-primary">arrow_outward</span>
+</div>
+</div>
+</div>
+<!-- Project 2: InventoryPro Desktop -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden glow-card transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="A premium desktop software workstation display featuring an offline-first inventory management dashboard on a macOS retina monitor. The software displays structured data grids, inventory heatmaps, and local database sync toggles. The scene is illuminated by soft diffused daylight in an architect studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcj-3EI-kzYbG6MyyMeMuEPBdTKMKAa6AD9J3E8NybuXUQVjk4kPy4dORUF1la-OdzXVxAwsre8eLyXPjqRLHlX65P5aNXQUUXH4odH-ubf_3Q6D1oWZQNunZTQXuS1qCafHy8YejlPQXcWkm7vPm2xopz65D65-cBm5D6IV2jGtQTxeHME_gZHzLpty4NrLy290SQXfH4TAzG9LrffSD5kgt6evnBB4OExZ5djHOOXFI1BJovHU9Ang"/>
+<div class="absolute top-3 right-3 bg-surface-container-lowest/90 px-3 py-1 rounded-full text-caption font-caption text-primary backdrop-blur-md">
+              macOS • Windows
+            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="font-caption text-caption text-secondary mb-1">Logiciel Local • Offline-First</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">InventoryPro Desktop</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                Logiciel de gestion logistique pour entrepôts et points de vente. Opérationnel 100% sans internet avec sync automatique SQLite vers Cloud.
+              </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Zéro latence réseau</span>
+<span class="material-symbols-outlined text-primary">arrow_outward</span>
+</div>
+</div>
+</div>
+<!-- Project 3: Pulse Health -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden glow-card transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="A sleek wearable smartwatch paired beside an ultra-thin smartphone showing synchronized medical monitoring applications. The interface features biometric pulse waves, real-time telemetry gauges, and encrypted patient records against an ultra clean white aesthetic with subtle indigo neon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjePD5P31wpIMlxMV6BtNI5TIkQ3uEYxOLOCHa6JjRSJohHv_LwkBaW_w6VqshMrBQ2IW-tAFXwBkclKMlyelbYZStuNgvpSMOtj091bzQ-oFPr_t_zgI_mtKaZj9ypl1p2K7NChjqboqJv8VWNA2Z2PHGjy7X-Tt7y07py9SwV5tvj8mM7yX1DXZViV5dPfC6MABZcyAEw9VzvvSLb_VHRDAM8sdtY5Y03z6eDOpPpxggQn4Lx3fwlg"/>
+<div class="absolute top-3 right-3 bg-surface-container-lowest/90 px-3 py-1 rounded-full text-caption font-caption text-primary backdrop-blur-md">
+              Mobile • WatchOS
+            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="font-caption text-caption text-secondary mb-1">HealthTech • IoT • Bluetooth LE</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Pulse Health</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                Système couplé montre et smartphone pour la surveillance en temps réel de patients en ambulatoire. Chiffrement de bout en bout des données vitales.
+              </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Norme HDS • BLE 5.3</span>
+<span class="material-symbols-outlined text-primary">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: ATOUTS & ARCHITECTURE -->
+<section class="py-section-gap-md bg-surface-container-high/40 border-t border-outline-variant/20" id="avantages">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+<span class="font-caption text-caption uppercase tracking-wider text-primary font-bold">Standard de Qualité Studio</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-6">
+              Pourquoi choisir une approche locale et native ?
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+              Les applications web souffrent des aléas de connectivité, des latences de serveurs distants et des limitations de navigateurs. Nos développements natifs placent l'intelligence directement dans l'appareil de vos utilisateurs.
+            </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div>
+<h4 class="font-headline-md text-base font-bold text-on-surface">Performance Native &amp; GPU</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Animations calibrées à 120 images par seconde, temps de chargement quasi-instantané et consommation d'énergie optimisée.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">wifi_off</span>
+</div>
+<div>
+<h4 class="font-headline-md text-base font-bold text-on-surface">100% Fonctionnel Hors-Ligne</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Vos collaborateurs et clients travaillent sans interruption, dans les transports, zones blanches ou locaux sécurisés.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div>
+<h4 class="font-headline-md text-base font-bold text-on-surface">Données Chiffrées en Local</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Respect strict du RGPD et souveraineté totale. Les données sensibles ne transitent sur aucun serveur non autorisé.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Specs Visual Display -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/40 glow-soft relative overflow-hidden">
+<div class="flex items-center justify-between pb-6 border-b border-outline-variant/20 mb-6">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">Spécifications Techniques</div>
+<span class="font-caption text-caption text-primary font-bold bg-primary-fixed px-3 py-1 rounded-full">v4.2 Production</span>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-2">
+<span class="text-on-surface">Vitesse de restitution locale</span>
+<span class="text-primary font-bold">120 FPS Stable</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[98%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-2">
+<span class="text-on-surface">Résilience aux coupures réseau</span>
+<span class="text-primary font-bold">100% Sans perte</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-gradient-to-r from-primary to-indigo-600 h-2 rounded-full w-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-2">
+<span class="text-on-surface">Niveau de sécurité cryptographique</span>
+<span class="text-primary font-bold">Chiffrement AES-GCM 256</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[95%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 text-center">
+<span class="font-caption text-caption text-secondary">
+                Nos stacks : Flutter • Swift • Kotlin • Tauri • Rust • SQLite • Libsodium
+              </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTACT / CTA SECTION -->
+<section class="py-section-gap-md max-w-container-max mx-auto px-margin-mobile md:px-gutter" id="contact">
+<div class="bg-gradient-to-br from-primary via-primary-container to-on-surface text-on-primary rounded-3xl p-8 md:p-16 relative overflow-hidden shadow-2xl">
+<div class="max-w-2xl relative z-10">
+<span class="font-caption text-caption uppercase tracking-wider text-primary-fixed font-bold mb-2 inline-block">
+            Votre prochain projet commence ici
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-white mb-6">
+            Donnez vie à votre application mobile ou logiciel de bureau sur-mesure.
+          </h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim mb-8">
+            Planifiez un échange technique de 30 minutes avec nos architectes logiciels. Analyse de faisabilité, estimation budgétaire et choix de la stack optimale.
+          </p>
+<form class="space-y-4 max-w-lg" onsubmit="event.preventDefault(); alert('Merci pour votre message. Notre studio vous recontacte sous 24h.');">
+<div class="flex flex-col sm:flex-row gap-3">
+<input class="w-full px-5 py-3.5 rounded-full bg-white text-on-surface placeholder:text-secondary border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-primary-fixed" placeholder="Votre adresse email professionnelle" required="" type="email"/>
+<button class="shrink-0 bg-white text-primary font-label-md text-label-md px-8 py-3.5 rounded-full hover:bg-surface-container transition-all duration-300 font-bold" type="submit">
+                Être recontacté
+              </button>
+</div>
+<p class="font-caption text-caption text-primary-fixed/80">
+              Confidentiel. Réponse garantie sous 24 heures ouvrées.
+            </p>
+</form>
+</div>
+<!-- Decorative geometry in background -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full border border-white/10 pointer-events-none"></div>
+<div class="absolute -right-10 -bottom-10 w-64 h-64 rounded-full border border-white/10 pointer-events-none"></div>
+</div>
+</section>
+</main>
+<!-- FOOTER (Shared Component Source of Truth verbatim) -->
+<footer class="w-full pt-section-gap-md pb-base bg-on-background dark:bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 md:grid-cols-2 gap-base text-surface-container-lowest dark:text-on-background">
+<!-- Brand & Description -->
+<div class="flex flex-col justify-between mb-8 md:mb-0">
+<div>
+<div class="font-headline-md text-headline-md font-extrabold text-white mb-2">ARCANE DESIGN</div>
+<p class="font-body-md text-body-md text-secondary-fixed-dim/70 dark:text-on-surface-variant max-w-sm">
+            Studio d'ingénierie et de design spécialisé dans les applications mobiles natives et logiciels locaux offline-first haute performance.
+          </p>
+</div>
+<div class="font-body-md text-body-md text-secondary-fixed-dim/70 dark:text-on-surface-variant mt-8">
+          © 2024 Arcane Design Studio. All rights reserved.
+        </div>
+</div>
+<!-- Links & Navigation -->
+<div class="flex flex-col md:items-end justify-between">
+<ul class="flex flex-wrap gap-gutter font-body-md text-body-md">
+<li>
+<a class="text-secondary-fixed-dim/70 dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-all" href="#expertises">
+              Services
+            </a>
+</li>
+<li>
+<a class="text-secondary-fixed-dim/70 dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-all" href="#projets">
+              Case Studies
+            </a>
+</li>
+<li>
+<a class="text-secondary-fixed-dim/70 dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-all" href="#avantages">
+              Process
+            </a>
+</li>
+<li>
+<a class="text-white underline hover:text-white dark:hover:text-primary transition-all" href="#contact">
+              Contact
+            </a>
+</li>
+</ul>
+<div class="flex items-center gap-4 mt-8 md:mt-0 text-secondary-fixed-dim/70 font-caption text-caption">
+<span>iOS • Android • macOS • Windows</span>
+<span>•</span>
+<span>Architecture Offline 100%</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

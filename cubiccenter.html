@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cubic Center // Agence de Développement Web Haute Performance</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#f0dbff",
+            "tertiary-fixed-dim": "#ddb7ff",
+            "surface-tint": "#00dbe9",
+            "primary-fixed-dim": "#00dbe9",
+            "surface-container-highest": "#33343b",
+            "error": "#ffb4ab",
+            "primary": "#dbfcff",
+            "on-error": "#690005",
+            "on-surface-variant": "#b9cacb",
+            "on-background": "#e2e2eb",
+            "inverse-surface": "#e2e2eb",
+            "on-primary-container": "#006970",
+            "on-tertiary-fixed": "#2c0051",
+            "on-secondary": "#1000a9",
+            "tertiary": "#fdf2ff",
+            "surface-container-low": "#191b22",
+            "tertiary-container": "#eacfff",
+            "on-tertiary-container": "#842bd2",
+            "secondary": "#c0c1ff",
+            "on-error-container": "#ffdad6",
+            "surface-bright": "#373940",
+            "outline": "#849495",
+            "surface": "#111319",
+            "surface-container-high": "#282a30",
+            "on-primary-fixed-variant": "#004f54",
+            "on-tertiary-fixed-variant": "#6900b3",
+            "on-surface": "#e2e2eb",
+            "inverse-on-surface": "#2e3037",
+            "inverse-primary": "#006970",
+            "on-secondary-container": "#b0b2ff",
+            "surface-dim": "#111319",
+            "on-secondary-fixed": "#07006c",
+            "on-primary": "#00363a",
+            "secondary-fixed": "#e1e0ff",
+            "secondary-fixed-dim": "#c0c1ff",
+            "surface-container": "#1e1f26",
+            "surface-variant": "#33343b",
+            "on-tertiary": "#490080",
+            "on-secondary-fixed-variant": "#2f2ebe",
+            "primary-container": "#00f0ff",
+            "background": "#111319",
+            "outline-variant": "#3b494b",
+            "primary-fixed": "#7df4ff",
+            "secondary-container": "#3131c0",
+            "surface-container-lowest": "#0c0e14",
+            "error-container": "#93000a",
+            "on-primary-fixed": "#002022"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1.25rem"
+          },
+          "fontFamily": {
+            "label-badge": ["JetBrains Mono"],
+            "headline-lg-mobile": ["Space Grotesk"],
+            "headline-md": ["Space Grotesk"],
+            "headline-lg": ["Space Grotesk"],
+            "headline-sm": ["Space Grotesk"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-code": ["JetBrains Mono"],
+            "display-hero-mobile": ["Space Grotesk"],
+            "display-hero": ["Space Grotesk"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-badge": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["1.875rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-md": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["2.75rem", { "lineHeight": "3.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-sm": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "0em", "fontWeight": "600" }],
+            "body-sm": ["0.875rem", { "lineHeight": "1.4rem", "fontWeight": "400" }],
+            "body-md": ["1rem", { "lineHeight": "1.6rem", "fontWeight": "400" }],
+            "label-code": ["0.8125rem", { "lineHeight": "1.2rem", "letterSpacing": "0.05em", "fontWeight": "500" }],
+            "display-hero-mobile": ["2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-hero": ["4rem", { "lineHeight": "4.5rem", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom Isometric Cube Animation for Splash */
+    .cube-wrap {
+      perspective: 900px;
+      perspective-origin: 50% 50%;
+    }
+    .cube-3d {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      transform-style: preserve-3d;
+      animation: rotateCube 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    .cube-face {
+      position: absolute;
+      width: 72px;
+      height: 72px;
+      border: 1.5px solid #00f0ff;
+      background: rgba(0, 240, 255, 0.08);
+      box-shadow: inset 0 0 15px rgba(0, 240, 255, 0.2);
+    }
+    .cube-face-front  { transform: translateZ(36px); }
+    .cube-face-back   { transform: rotateY(180deg) translateZ(36px); }
+    .cube-face-right  { transform: rotateY(90deg) translateZ(36px); }
+    .cube-face-left   { transform: rotateY(-90deg) translateZ(36px); }
+    .cube-face-top    { transform: rotateX(90deg) translateZ(36px); }
+    .cube-face-bottom { transform: rotateX(-90deg) translateZ(36px); }
+
+    @keyframes rotateCube {
+      0% {
+        transform: rotateX(-24deg) rotateY(0deg) scale(0.9);
+      }
+      50% {
+        transform: rotateX(-24deg) rotateY(180deg) scale(1.05);
+      }
+      100% {
+        transform: rotateX(-24deg) rotateY(360deg) scale(0.9);
+      }
+    }
+
+    /* Ambient Tech Grid */
+    .bg-tech-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* Loading bar keyframes */
+    @keyframes progressLoader {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+    .animate-progress-3s {
+      animation: progressLoader 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    /* Crosshair accents */
+    .crosshair-corner::before {
+      content: "+";
+      position: absolute;
+      top: -7px;
+      left: -7px;
+      color: #00f0ff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      line-height: 1;
+      opacity: 0.6;
+    }
+    .crosshair-corner::after {
+      content: "+";
+      position: absolute;
+      bottom: -7px;
+      right: -7px;
+      color: #00f0ff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      line-height: 1;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen pb-20 font-body-md text-body-md overflow-x-hidden">
+<!-- =========================================================================
+       1. SPLASH SCREEN (3-SECOND INTRO ANIMATION WITH SKIP BUTTON)
+  ========================================================================= -->
+<div class="fixed inset-0 z-50 flex flex-col justify-between items-center bg-surface-container-lowest px-gutter-mobile py-space-xl transition-all duration-700 select-none" id="splash-screen">
+<!-- Top Meta -->
+<div class="w-full flex justify-between items-center">
+<div class="flex items-center space-x-2">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-badge text-label-badge text-primary-container uppercase tracking-wider">BOOTSTRAP_CORE // V3.8</span>
+</div>
+<button class="font-label-badge text-label-badge text-on-surface-variant hover:text-primary-container px-3 py-1 border border-outline-variant/60 rounded-lg active:scale-95 transition-all" id="skip-splash-btn">
+        PASSER [ESC]
+      </button>
+</div>
+<!-- Center Isometric Visual -->
+<div class="flex flex-col items-center justify-center my-auto">
+<div class="cube-wrap mb-space-lg">
+<div class="cube-3d">
+<div class="cube-face cube-face-front"></div>
+<div class="cube-face cube-face-back"></div>
+<div class="cube-face cube-face-right"></div>
+<div class="cube-face cube-face-left"></div>
+<div class="cube-face cube-face-top"></div>
+<div class="cube-face cube-face-bottom"></div>
+</div>
+</div>
+<div class="text-center">
+<h1 class="font-headline-md text-headline-md font-bold tracking-widest text-primary mb-1">
+          CUBIC <span class="text-primary-container">//</span> CENTER
+        </h1>
+<p class="font-label-code text-label-code text-on-surface-variant tracking-wider uppercase">
+          Digital Engineering Agency
+        </p>
+</div>
+<div class="mt-6 flex items-center space-x-2 px-3 py-1 bg-surface-container/60 border border-outline-variant/50 rounded-lg">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="terminal">terminal</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant" id="splash-status-text">INITIALISATION SYSTÈME...</span>
+</div>
+</div>
+<!-- Bottom Progress & Metric -->
+<div class="w-full max-w-xs flex flex-col space-y-2">
+<div class="flex justify-between items-center text-xs font-label-code text-on-surface-variant">
+<span>CHARGEMENT MODULES</span>
+<span class="text-primary-container font-semibold" id="splash-counter">0%</span>
+</div>
+<!-- 3000ms animated bar -->
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-secondary animate-progress-3s"></div>
+</div>
+<div class="text-center pt-2">
+<span class="font-label-badge text-[10px] tracking-widest text-outline">LATENCY: 12MS // ARCH: NODE_OCTA</span>
+</div>
+</div>
+</div>
+<!-- =========================================================================
+       SHARED COMPONENT: TopAppBar (from JSON Source of Truth)
+  ========================================================================= -->
+<header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-md docked full-width top-0 sticky z-40 flex justify-between items-center w-full px-margin-mobile py-space-sm border-b border-outline-variant/30">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary-container text-xl" data-icon="deployed_code">deployed_code</span>
+<span class="font-headline-sm text-headline-sm font-bold tracking-widest text-primary dark:text-primary">CUBIC // CENTER</span>
+</div>
+<div class="flex items-center space-x-2">
+<a class="font-headline-sm text-headline-sm tracking-wider uppercase text-primary-container dark:text-primary-container hover:text-primary-container hover:border-primary-container/50 transition-colors duration-200 active:scale-95 transition-transform duration-150 px-2.5 py-1 border border-primary-container/40 rounded-lg text-xs font-semibold" href="#contact">
+        CONTACT
+      </a>
+</div>
+</header>
+<!-- =========================================================================
+       MAIN CONTENT CANVAS
+  ========================================================================= -->
+<main class="w-full bg-tech-grid relative">
+<!-- Sub-badge agency identity banner -->
+<div class="px-margin-mobile pt-4 pb-2">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-primary-container/10 border border-primary-container/30 text-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-badge text-label-badge uppercase">STUDIO D'INGÉNIERIE WEB &amp; EXPÉRIENCES DIGITALES</span>
+</div>
+</div>
+<!-- =========================================================================
+         HERO SECTION (High Impact Mobile)
+    ========================================================================= -->
+<section class="px-margin-mobile pt-3 pb-8 relative">
+<div class="absolute -top-10 right-0 w-44 h-44 bg-primary-container/10 blur-3xl pointer-events-none rounded-full"></div>
+<h1 class="font-display-hero-mobile text-display-hero-mobile font-bold tracking-tight text-on-surface mb-3">
+        Développement Web <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-primary to-secondary">Haute Performance</span> <br/>
+        &amp; Sur-Mesure.
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+        Nous concevons et déployons des architectures web ultra-véloces, des applications réactives et des expériences 3D fluides qui transforment vos visiteurs en clients fidèles.
+      </p>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3">
+<a class="flex items-center justify-center gap-2 bg-gradient-to-r from-primary-container to-secondary text-surface-container-lowest font-headline-sm text-sm font-bold py-3.5 px-6 rounded shadow-lg shadow-primary-container/20 active:scale-95 transition-transform" href="#audit">
+<span>Lancer mon projet</span>
+<span class="material-symbols-outlined text-base font-bold" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="flex items-center justify-center gap-2 bg-surface-container/60 hover:bg-surface-container-high border border-outline-variant/60 text-on-surface font-headline-sm text-sm py-3 px-6 rounded transition-all active:scale-95" href="#projets">
+<span class="material-symbols-outlined text-primary-container text-base" data-icon="visibility">visibility</span>
+<span>Voir nos réalisations</span>
+</a>
+</div>
+<!-- Quick terminal snippet badge -->
+<div class="mt-6 p-2.5 bg-surface-container-lowest/80 border border-outline-variant/40 rounded flex items-center justify-between font-label-code text-xs text-on-surface-variant">
+<span class="text-primary-container">&gt; npx cubic-center init</span>
+<span class="text-outline text-[11px]">STACK: NEXT 15 // EDGE CDN</span>
+</div>
+</section>
+<!-- =========================================================================
+         CHIFFRES CLÉS & RÉASSURANCE
+    ========================================================================= -->
+<section class="px-margin-mobile py-4">
+<div class="grid grid-cols-2 gap-2.5">
+<div class="p-3.5 bg-surface-container-low/70 border border-outline-variant/30 rounded crosshair-corner relative backdrop-blur-md">
+<span class="font-headline-md text-headline-md font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-primary block">
+            +150
+          </span>
+<span class="font-label-badge text-[11px] text-on-surface-variant uppercase tracking-wider block mt-1">
+            Sites déployés
+          </span>
+</div>
+<div class="p-3.5 bg-surface-container-low/70 border border-outline-variant/30 rounded crosshair-corner relative backdrop-blur-md">
+<span class="font-headline-md text-headline-md font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-secondary block">
+            99.9%
+          </span>
+<span class="font-label-badge text-[11px] text-on-surface-variant uppercase tracking-wider block mt-1">
+            Disponibilité SLA
+          </span>
+</div>
+<div class="p-3.5 bg-surface-container-low/70 border border-outline-variant/30 rounded crosshair-corner relative backdrop-blur-md">
+<span class="font-headline-md text-headline-md font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-primary block">
+            98+
+          </span>
+<span class="font-label-badge text-[11px] text-on-surface-variant uppercase tracking-wider block mt-1">
+            Score Google Speed
+          </span>
+</div>
+<div class="p-3.5 bg-surface-container-low/70 border border-outline-variant/30 rounded crosshair-corner relative backdrop-blur-md">
+<span class="font-headline-md text-headline-md font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-secondary block">
+            x3.2
+          </span>
+<span class="font-label-badge text-[11px] text-on-surface-variant uppercase tracking-wider block mt-1">
+            Taux de conversion
+          </span>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         SERVICES DÉTAILLÉS (Bento Style Cards)
+    ========================================================================= -->
+<section class="px-margin-mobile py-6" id="services">
+<div class="flex items-center justify-between mb-4">
+<div>
+<span class="font-label-badge text-label-badge text-primary-container tracking-wider uppercase block">CAPACITÉS TECHNIQUES</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">Nos Expertises</h2>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="layers">layers</span>
+</div>
+<div class="space-y-3.5">
+<!-- Service 1 -->
+<div onclick='sbabscompanyweb()'>
+<div class="p-4 bg-surface-container/60 border border-outline-variant/40 rounded hover:border-primary-container/60 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<span class="p-2 rounded bg-primary-container/10 text-primary-container border border-primary-container/20">
+<span class="material-symbols-outlined text-xl" data-icon="code_blocks">code_blocks</span>
+</span>
+<span class="font-label-code text-[11px] text-outline">SVC // 01</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mb-1">
+            Applications Web Sur-Mesure    //    SBABS COMPANY (web)
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+            Développement de plateformes SaaS, dashboards interactifs et portails métiers à haute charge avec React, Next.js et Node.js. Avec une sécurité performante et un deesing magnifique !
+          </p>
+<div class="flex flex-wrap gap-1.5 font-label-badge text-[10px]">
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">NEXT.JS 15</span>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">TYPESCRIPT</span>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">SUPABASE</span>
+</div>
+</div>
+</div>
+<!-- Service 2 -->
+<div onclick='sbabscompanyapp()'>
+<div class="p-4 bg-surface-container/60 border border-outline-variant/40 rounded hover:border-primary-container/60 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<span class="p-2 rounded bg-secondary-container/20 text-secondary border border-secondary/20">
+<span class="material-symbols-outlined text-xl" data-icon="view_in_ar">view_in_ar</span>
+</span>
+<span class="font-label-code text-[11px] text-outline">SVC // 02</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mb-1">
+            Création d'Application mobile ou ordinateur // SBABS COMPANY (app)
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+            Expériences immersives 3D WebGL et storytelling interactif pour asseoir la réputation de marques prestigieuses et startups ambitieuses. Jeux, magasin et toutes autres possibilitées.
+          </p>
+<div class="flex flex-wrap gap-1.5 font-label-badge text-[10px]">
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">THREE.JS</span>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">GSAP</span>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">UI/UX</span>
+</div>
+</div>
+</div>
+<!-- Service 3 -->
+<div onclick='cubiccentertekk()'>
+<div class="p-4 bg-surface-container/60 border border-outline-variant/40 rounded hover:border-primary-container/60 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<span class="p-2 rounded bg-primary-container/10 text-primary-container border border-primary-container/20">
+<span class="material-symbols-outlined text-xl" data-icon="shopping_bag">shopping_bag</span>
+</span>
+<span class="font-label-code text-[11px] text-outline">SVC // 03</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mb-1">
+            E-Commerce Haute Conversion, Technology // Cubic Center tekk
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+            Boutiques en ligne ultra-rapides sous Shopify Plus &amp; architectures Headless sans friction pour maximiser le panier moyen. Technologies performantes et appareils splendides .
+          </p>
+<div class="flex flex-wrap gap-1.5 font-label-badge text-[10px]">
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">HEADLESS</span>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">SHOPIFY API</span>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">STRIPE</span>
+</div>
+</div>
+</div>
+<!-- Service 4 -->
+<div onclick='nofunction()'>
+<div class="p-4 bg-surface-container/60 border border-outline-variant/40 rounded hover:border-primary-container/60 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<span class="p-2 rounded bg-tertiary-container/20 text-tertiary border border-tertiary-container/30">
+<span class="material-symbols-outlined text-xl" data-icon="speed">speed</span>
+</span>
+<span class="font-label-code text-[11px] text-outline">SVC // 04</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mb-1">
+            Refonte &amp; Optimisation Vitesse SEO
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+            Audit technique complet, réduction drastique du temps de chargement (LCP &lt; 0.8s) et restructuration sémantique SEO.
+          </p>
+<div class="flex flex-wrap gap-1.5 font-label-badge text-[10px]">
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">CORE WEB VITALS</span>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-on-surface-variant">EDGE COMPUTING</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         PROCESSUS EN 4 ÉTAPES
+    ========================================================================= -->
+<section class="px-margin-mobile py-6 bg-surface-container-low/40 border-y border-outline-variant/30">
+<div class="mb-5">
+<span class="font-label-badge text-label-badge text-primary-container uppercase tracking-wider block">MÉTHODOLOGIE AGILE</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">Processus de Déploiement</h2>
+</div>
+<div class="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant/40">
+<!-- Step 1 -->
+<div class="relative">
+<span class="absolute -left-6 top-0 w-4 h-4 rounded-full bg-primary-container border-4 border-surface-container-lowest"></span>
+<span class="font-label-code text-xs text-primary-container font-semibold">01 // CADRAGE &amp; ARCHITECTURE</span>
+<h4 class="font-headline-sm text-base text-primary font-bold mt-0.5">Spécifications &amp; Stack</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Analyse rigoureuse de vos objectifs business, sélection technologique sur-mesure et cartographie des parcours utilisateurs.
+          </p>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<span class="absolute -left-6 top-0 w-4 h-4 rounded-full bg-primary-container border-4 border-surface-container-lowest"></span>
+<span class="font-label-code text-xs text-primary-container font-semibold">02 // DESIGN UI/UX</span>
+<h4 class="font-headline-sm text-base text-primary font-bold mt-0.5">Prototypes &amp; Identité Digitale</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Design immersif, design tokens stricts, tests ergonomiques sur mobile et validation des micro-interactions.
+          </p>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<span class="absolute -left-6 top-0 w-4 h-4 rounded-full bg-primary-container border-4 border-surface-container-lowest"></span>
+<span class="font-label-code text-xs text-primary-container font-semibold">03 // CODE &amp; TESTS</span>
+<h4 class="font-headline-sm text-base text-primary font-bold mt-0.5">Ingénierie &amp; QA Rigoureuse</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Écriture de code propre, composants modulaires, couverture de tests unitaires et intégration continue CI/CD.
+          </p>
+</div>
+<!-- Step 4 -->
+<div class="relative">
+<span class="absolute -left-6 top-0 w-4 h-4 rounded-full bg-primary-container border-4 border-surface-container-lowest"></span>
+<span class="font-label-code text-xs text-primary-container font-semibold">04 // DÉPLOIEMENT &amp; SUIVI</span>
+<h4 class="font-headline-sm text-base text-primary font-bold mt-0.5">Mise en Prod &amp; Garantie</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Propagation sur réseau CDN mondial, monitoring temps réel, transfert de compétences et maintenance proactive.
+          </p>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         SHOWCASE RÉALISATIONS
+    ========================================================================= -->
+<section class="px-margin-mobile py-6" id="projets">
+<div class="flex items-center justify-between mb-4">
+<div>
+<span class="font-label-badge text-label-badge text-primary-container uppercase tracking-wider block">PORTFOLIO SÉLECTIONNÉ</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">Réalisations Récentes</h2>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="terminal">terminal</span>
+</div>
+<div class="space-y-4">
+<!-- Project 1 -->
+<div class="bg-surface-container/60 border border-outline-variant/40 rounded overflow-hidden">
+<div class="relative h-44 w-full bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A sleek dark modern website interface for an automated fintech platform displayed on a high-resolution mobile and desktop mockups with luminous electric cyan dashboard charts, geometric graphs, clean typography, dark obsidian backdrop, and radiant indigo accents adhering to futuristic precision digital engineering aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1fYx68uY8lu6MbVw_Xoik9CEB5Fyi8lPYEJpTdhU1JOu3LAIp6PJxYXa99OD6JN2X79snPIAypL6jl6Ae3_poQtMjU9lO0oBudBC_foawXFIL8wj-03h2k3WwiHDa6bUKioW15JK4iLd3iYzL7lAQx-AusO2nKwALo9Sw0rlAqvvOnCEeXc7aErHXIO1EAvpICZHv9pIGrcOcdZ4GCEoXZKwDwG3mRgTvDozpYN5MSKj8xIfypJzzdg"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-surface-container-lowest/80 border border-outline-variant/60 rounded text-[10px] font-label-code text-primary-container">
+              REF: PRJ-091 // PARIS
+            </div>
+</div>
+<div class="p-3.5">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-headline-sm text-base font-bold text-primary">Aura Finance Core</h3>
+<span class="text-xs text-primary-container font-label-badge">LIVE SITE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2.5">
+              Plateforme d'investissement automatisée avec flux de données WebSockets en temps réel et tableau de bord réactif.
+            </p>
+<div class="flex gap-2 font-label-badge text-[10px] text-outline">
+<span>#NEXTJS</span>
+<span>#TAILWIND</span>
+<span>#WEBSOCKETS</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-surface-container/60 border border-outline-variant/40 rounded overflow-hidden">
+<div class="relative h-44 w-full bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A high-end luxury e-commerce website showing an avant-garde minimalist fashion catalog with interactive three-dimensional geometric cubes, glowing neon cyan highlights on dark slate surfaces, bold typography, and sleek modern studio product presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOrZ6ZZ8HBOzAsyhCZNUE1nJuUqs--FsomXUucpJ-N90dlhZhYc71-UC7giervbschKmPCWgSqL87w0cEFXoBKM2UGYbIJKOg14q29XC4iL7uBo41TRO0f8S7PFHUKr2M3GtZ3a6KPZgoGKfF-nYov_5dvJQEUoDfPo6wiFOSMir_xN5ksWH_pHQMd4PDb7Ez1u6iA1uK7Tteiuf_9eUoD4dsU_0R4rtM7rs1gjgP-Tn9swVihkc15fg"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-surface-container-lowest/80 border border-outline-variant/60 rounded text-[10px] font-label-code text-primary-container">
+              REF: PRJ-104 // LYON
+            </div>
+</div>
+<div class="p-3.5">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-headline-sm text-base font-bold text-primary">Kromia Design Studio</h3>
+<span class="text-xs text-primary-container font-label-badge">E-COMMERCE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2.5">
+              Boutique Headless Shopify avec configurateur 3D temps réel générant +140% de conversion dès le premier mois.
+            </p>
+<div class="flex gap-2 font-label-badge text-[10px] text-outline">
+<span>#SHOPIFY-PLUS</span>
+<span>#THREEJS</span>
+<span>#GRAPHQL</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         TÉMOIGNAGES CLIENTS
+    ========================================================================= -->
+<section class="px-margin-mobile py-6 bg-surface-container-low/40">
+<div class="mb-4">
+<span class="font-label-badge text-label-badge text-primary-container uppercase tracking-wider block">RETOURS D'EXPÉRIENCE</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">Ils Nous Font Confiance</h2>
+</div>
+<div class="space-y-3">
+<div class="p-4 bg-surface-container/70 border border-outline-variant/40 rounded">
+<div class="flex items-center space-x-1 text-primary-container mb-2">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface italic mb-3">
+            « Cubic Center a refondu notre plateforme en Next.js. Nos temps de chargement sont passés de 3.4s à moins de 0.6s. L'impact sur notre chiffre d'affaires a été immédiat. »
+          </p>
+<div class="flex items-center justify-between text-xs border-t border-outline-variant/30 pt-2">
+<div>
+<p class="font-headline-sm text-xs font-semibold text-primary">Alexandre V.</p>
+<p class="text-outline">CTO @ NexoScale France</p>
+</div>
+<span class="font-label-badge text-[10px] text-primary-container bg-primary-container/10 px-2 py-0.5 rounded">VERIFIED</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container/70 border border-outline-variant/40 rounded">
+<div class="flex items-center space-x-1 text-primary-container mb-2">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface italic mb-3">
+            « Une rigueur d'ingénierie rare. Le rendu graphique 3D sur mobile est fluide à 60fps constants. Nos clients restent ébahis par l'expérience. »
+          </p>
+<div class="flex items-center justify-between text-xs border-t border-outline-variant/30 pt-2">
+<div>
+<p class="font-headline-sm text-xs font-semibold text-primary">Camille D.</p>
+<p class="text-outline">Fondatrice @ Maison K</p>
+</div>
+<span class="font-label-badge text-[10px] text-primary-container bg-primary-container/10 px-2 py-0.5 rounded">VERIFIED</span>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         AUDIT EXPRESS / FORMULAIRE D'ACTION
+    ========================================================================= -->
+<section class="px-margin-mobile py-8 relative" id="audit">
+<div class="p-5 bg-surface-container-high/60 border border-primary-container/40 rounded crosshair-corner relative">
+<span class="font-label-badge text-label-badge text-primary-container uppercase tracking-wider block mb-1">ACCÉLÉRATEUR 24H</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface mb-2">
+          Demandez votre Audit 
+        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+          Recevez une analyse complète des performances, du SEO et de l'architecture de votre site actuel sous 24 heures ouvrées.
+        </p>
+<form class="space-y-3" onsubmit="event.preventDefault(); alert('Audit planifié avec succès ! Notre équipe d\'ingénieurs vous contactera sous 24h.'); if (confirm('Pour plus de renseignement, vous pouvez accéder au site qui s'occupe des sites web (sbabs company) en cliquent sur OK juste en dessous !')) { window.location.href = 'https://gameblack66.github.io/sbabs_company/index.html'; };">
+<div>
+<label class="block font-label-badge text-[11px] text-on-surface-variant uppercase mb-1">URL de votre site web</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface text-sm rounded px-3 py-2.5 outline-none font-label-code transition-colors" placeholder="https://votre-domaine.com" required="" type="url"/>
+</div>
+<div>
+<label class="block font-label-badge text-[11px] text-on-surface-variant uppercase mb-1">Votre email professionnel</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface text-sm rounded px-3 py-2.5 outline-none font-label-code transition-colors" placeholder="contact@entreprise.fr" required="" type="email"/>
+</div>
+<div>
+<label class="block font-label-badge text-[11px] text-on-surface-variant uppercase mb-1">Objectif prioritaire</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface text-sm rounded px-3 py-2.5 outline-none font-label-code">
+<option>Optimisation vitesse (Core Web Vitals)</option>
+<option>Refonte complète moderne (Next.js)</option>
+<option>Développement Application Sur-Mesure</option>
+<option>Création E-Commerce Haute Performance</option>
+</select>
+</div>
+<button class="w-full py-3.5 px-4 bg-gradient-to-r from-primary-container to-secondary text-surface-container-lowest font-headline-sm text-sm font-bold rounded shadow-lg shadow-primary-container/20 flex items-center justify-center space-x-2 active:scale-95 transition-transform mt-2" type="submit">
+<span class="material-symbols-outlined text-base" data-icon="bolt">bolt</span>
+<span>OBTENIR MON AUDIT OFFERT</span>
+</button>
+</form>
+<div class="mt-3 flex items-center justify-center space-x-2 text-[11px] text-outline font-label-code">
+<span class="material-symbols-outlined text-xs text-primary-container" data-icon="lock">lock</span>
+<span>Données confidentielles // Zéro spam garanti</span>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         FOOTER
+    ========================================================================= -->
+<footer class="px-margin-mobile pt-8 pb-12 border-t border-outline-variant/30 bg-surface-container-lowest" id="contact">
+<div class="flex items-center space-x-2 mb-3">
+<span class="material-symbols-outlined text-primary-container text-2xl" data-icon="deployed_code">deployed_code</span>
+<span class="font-headline-sm text-headline-sm font-bold tracking-widest text-primary">CUBIC // CENTER</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+        Studio d'ingénierie logicielle &amp; architecture web haute performance. Nous concevons le futur digital des organisations audacieuses.
+      </p>
+<div class="space-y-2 mb-6 font-label-code text-xs text-on-surface-variant">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="mail">mail</span>
+<span>contact@cubic-center.tech</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="location_on">location_on</span>
+<span>Bolquère 66 // France &amp; Remote International</span>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex flex-col gap-2 text-[11px] font-label-badge text-outline">
+<div class="flex justify-between">
+<span>© 2026 CUBIC CENTER</span>
+<span>TOUS DROITS RÉSERVÉS</span>
+</div>
+<div class="flex space-x-4">
+<a class="hover:text-primary-container" href=".../metileg.html">Mentions Légales</a>
+<a class="hover:text-primary-container" href=".../poletconf.html">Politique de Confidentialité</a>
+<a class="hover:text-primary-container" href="https://gameblack66.github.io/sbabs_company/cubiccenter.html">GitHub</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- =========================================================================
+       SHARED COMPONENT: BottomNavBar (from JSON Source of Truth)
+  ========================================================================= -->
+<nav class="bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-xl docked full-width bottom-0 fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-gutter-mobile py-space-xs border-t border-outline-variant/40 md:hidden">
+<!-- Item 1: Accueil (Active) -->
+<a class="flex flex-col items-center justify-center text-primary-container border-t-2 border-primary-container pt-1 hover:text-primary transition-colors duration-200 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="grid_view">grid_view</span>
+<span class="font-label-badge text-label-badge uppercase text-[10px]">Accueil</span>
+</a>
+<!-- Item 2: Services -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 pt-1 hover:text-primary transition-colors duration-200 active:scale-95 transition-transform duration-150" href="#services">
+<span class="material-symbols-outlined text-xl" data-icon="layers">layers</span>
+<span class="font-label-badge text-label-badge uppercase text-[10px]">Services</span>
+</a>
+<!-- Item 3: Projets -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 pt-1 hover:text-primary transition-colors duration-200 active:scale-95 transition-transform duration-150" href="#projets">
+<span class="material-symbols-outlined text-xl" data-icon="terminal">terminal</span>
+<span class="font-label-badge text-label-badge uppercase text-[10px]">Projets</span>
+</a>
+<!-- Item 4: Audit -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 pt-1 hover:text-primary transition-colors duration-200 active:scale-95 transition-transform duration-150" href="#audit">
+<span class="material-symbols-outlined text-xl" data-icon="bolt">bolt</span>
+<span class="font-label-badge text-label-badge uppercase text-[10px]">Audit</span>
+</a>
+</nav>
+<!-- =========================================================================
+       INTERACTION SCRIPT: SPLASH SCREEN 3-SECOND TIMER & DISMISS
+  ========================================================================= -->
+<script>
+    (function initSplashScreen() {
+      const splash = document.getElementById('splash-screen');
+      const counter = document.getElementById('splash-counter');
+      const statusText = document.getElementById('splash-status-text');
+      const skipBtn = document.getElementById('skip-splash-btn');
+
+      if (!splash) return;
+
+      let startTime = performance.now();
+      const duration = 3000; // 3 seconds exact requirement
+      let isDismissed = false;
+
+      function updateLoader(currentTime) {
+        if (isDismissed) return;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(Math.floor((elapsed / duration) * 100), 100);
+
+        if (counter) {
+          counter.textContent = progress + '%';
+        }
+
+        if (progress > 35 && progress < 70 && statusText) {
+          statusText.textContent = "CHARGEMENT DES SHADERS // WEBGL...";
+        } else if (progress >= 70 && statusText) {
+          statusText.textContent = "SYNCHRONISATION CLIENT PRÊTE";
+        }
+
+        if (elapsed < duration) {
+          requestAnimationFrame(updateLoader);
+        } else {
+          dismissSplash();
+        }
+      }
+
+      function dismissSplash() {
+        if (isDismissed) return;
+        isDismissed = true;
+        splash.classList.add('opacity-0', 'scale-105', 'pointer-events-none', 'blur-sm');
+        setTimeout(() => {
+          splash.style.display = 'none';
+        }, 700);
+      }
+
+      // Start the animation loop
+      requestAnimationFrame(updateLoader);
+
+      // Manual skip handlers
+      if (skipBtn) {
+        skipBtn.addEventListener('click', dismissSplash);
+      }
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') dismissSplash();
+      });
+    })();
+function sbabscompanyweb() {
+	window.location.href = 'https://gameblack66.github.io/sbabs_company/index.html';
+}
+function sbabscompanyapp() { 
+	window.location.href = 'https://gameblack66.github.io/sbabs_company/app.html';
+}
+function cubiccentertekk() { 
+	window.location.href='https://gameblack66.github.io/cubiccenter/tekk.html';
+}
+function nofunction() {
+	alert("Fonctionnalité non disponible !");
+}
+console.warn(" attetion au piratages, nos systémes de sécurité sont capables de vous identifier; si ce message s'affiche ce n'est pas un hazard. Nous vous avons informer, à vous de prendre la responsabilité !");
+
+  </script>
+</body></html>
