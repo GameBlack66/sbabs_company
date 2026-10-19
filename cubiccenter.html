@@ -194,6 +194,26 @@
       opacity: 0.6;
     }
   </style>
+	  <style>
+  .texte-or {
+  display: inline-block;
+  white-space: nowrap;
+  background: linear-gradient(
+    90deg,
+    #b8860b, #ffd700, #fff8dc, #ffd700, #b8860b
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: brillance 2s linear infinite;
+  margin-left: 15px; 
+}
+
+@keyframes brillance {
+  to { background-position: 200% center; }
+}
+</style>
 </head>
 <body class="bg-background text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen pb-20 font-body-md text-body-md overflow-x-hidden">
 <!-- =========================================================================
@@ -230,6 +250,7 @@
 <p class="font-label-code text-label-code text-on-surface-variant tracking-wider uppercase">
           Digital Engineering Agency
         </p>
+			<p>By <span class='texte-or'> Oportunity</span></p>
 </div>
 <div class="mt-6 flex items-center space-x-2 px-3 py-1 bg-surface-container/60 border border-outline-variant/50 rounded-lg">
 <span class="material-symbols-outlined text-primary-container text-sm" data-icon="terminal">terminal</span>
