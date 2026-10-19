@@ -112,6 +112,18 @@
         }
       }
     }
+	/* Par défaut : 25% */
+.image-specifique {
+  width: 25%;
+  height: auto;
+}
+
+/* Mobile : 50% uniquement pour cette image */
+@media (max-width: 768px) {
+  .image-specifique {
+    width: 50%;
+  }
+}   
   </script>
 <style>
     /* Custom Isometric Cube Animation for Splash */
@@ -211,8 +223,8 @@
       </button>
 </div>
 <!-- Center Isometric Visual -->
-<!--<div class="flex flex-col items-center justify-center my-auto">
-<div class="cube-wrap mb-space-lg">
+<div class="flex flex-col items-center justify-center my-auto">
+<!--<div class="cube-wrap mb-space-lg">
 <div class="cube-3d">
 <div class="cube-face cube-face-front"></div>
 <div class="cube-face cube-face-back"></div>
@@ -222,7 +234,7 @@
 <div class="cube-face cube-face-bottom"></div>
 </div>
 </div>-->
-	<img src='realannimation.gif' width='20%'>
+	<img class='image-specifique' src='realannimation.gif'>
 <div class="text-center">
 <h1 class="font-headline-md text-headline-md font-bold tracking-widest text-primary mb-1">
           CUBIC <span class="text-primary-container">//</span> CENTER
