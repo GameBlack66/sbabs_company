@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon site</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #101827;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    main {
+      padding: 30px;
+    }
+
+    h1 {
+      color: #60a5fa;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>Bienvenue sur mon site ! 😎</h1>
+    <p>Merci de ta visite ❤️</p>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const PAGE_SPECIALE = "detection_de_devtools.html";
+      const SEUIL = 160;
+      let redirectionEnCours = false;
+
+      function rediriger() {
+        if (redirectionEnCours) return;
+
+        if (
+          window.location.pathname
+            .endsWith("/" + PAGE_SPECIALE)
+        ) {
+          return;
+        }
+
+        redirectionEnCours = true;
+
+        window.location.replace(PAGE_SPECIALE);
+      }
+
+      function verifierDimensions() {
+        const ecartLargeur =
+          window.outerWidth - window.innerWidth;
+
+        const ecartHauteur =
+          window.outerHeight - window.innerHeight;
+
+        if (
+          ecartLargeur > SEUIL ||
+          ecartHauteur > SEUIL
+        ) {
+          rediriger();
+        }
+      }
+
+      window.addEventListener("resize", verifierDimensions);
+
+      setInterval(verifierDimensions, 1500);
+    })();
+  </script>
+
+</body>
+</html>
